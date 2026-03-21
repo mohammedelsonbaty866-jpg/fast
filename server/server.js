@@ -8,6 +8,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+// مهم جدًا 👇
+app.get('/', (req, res) => {
+  res.send('Server is running 🚀');
+});
+
 // Get all products
 app.get('/products', (req, res) => {
   db.all("SELECT * FROM products", [], (err, rows) => {
