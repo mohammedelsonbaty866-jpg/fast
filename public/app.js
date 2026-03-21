@@ -1,33 +1,50 @@
 const API = '';
 
+let cart = [];
+
 async function loadProducts() {
   const res = await fetch(API + '/products');
   const data = await res.json();
 
-  const list = document.getElementById('products');
-  list.innerHTML = '';
+  const container = document.getElementById('products');
+  container.innerHTML = '';
 
   data.forEach(p => {
-    const li = document.createElement('li');
-    li.innerText = `${p.name} - ${p.price} - ${p.quantity}`;
-    list.appendChild(li);
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <b>${p.name}</b> - ${p.price}
+      <button onclick="addToCart(${p.id}, '${p.name}', ${p.price})">Add</button>
+    `;
+    container.appendChild(div);
   });
 }
 
-async function addProduct() {
-  const name = document.getElementById('name').value;
-  const price = document.getElementById('price').value;
-  const quantity = document.getElementById('quantity').value;
+function addToCart(id, name, price) {
+  cart.push({ id, name, price });
+  renderCart();
+}
 
-  await fetch(API + '/products', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name, price, quantity })
+function renderCart() {
+  const list = document.getElementById('cart');
+  list.innerHTML = '';
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price;
+
+    const li = document.createElement('li');
+    li.innerText = `${item.name} - ${item.price}`;
+    list.appendChild(li);
   });
 
-  loadProducts();
+  document.getElementById('total').innerText = 'Total: ' + total;
+}
+
+function checkout() {
+  alert('Sale completed!');
+  cart = [];
+  renderCart();
 }
 
 loadProducts();
