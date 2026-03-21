@@ -3,10 +3,12 @@ const cors = require('cors');
 const db = require('./database');
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+// Get all products
 app.get('/products', (req, res) => {
   db.all("SELECT * FROM products", [], (err, rows) => {
     if (err) return res.status(500).json(err);
@@ -14,6 +16,7 @@ app.get('/products', (req, res) => {
   });
 });
 
+// Add product
 app.post('/products', (req, res) => {
   const { name, price, quantity } = req.body;
 
@@ -31,6 +34,4 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
-  console.log('Server running on http://localhost:3000');
 });
