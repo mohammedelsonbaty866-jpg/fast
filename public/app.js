@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '';
 
 async function loadProducts() {
   const res = await fetch(API + '/products');
