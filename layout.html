@@ -1,0 +1,35 @@
+<div class="layout">
+
+  <div class="sidebar" id="sidebar">
+    <h2>ITQAN</h2>
+
+    <ul>
+      <li><a href="#" onclick="loadLayout('pages/dashboard.html')"><i class="fa fa-home"></i> لوحة التحكم</a></li>
+      <li><a href="#" onclick="loadLayout('pages/products.html')"><i class="fa fa-box"></i> المنتجات</a></li>
+      <li><a href="#" onclick="loadLayout('pages/pos.html')"><i class="fa fa-cash-register"></i> الكاشير</a></li>
+      <li><a href="#" onclick="loadLayout('pages/customers.html')"><i class="fa fa-users"></i> العملاء</a></li>
+      <li><a href="#" onclick="loadLayout('pages/invoices.html')"><i class="fa fa-file"></i> الفواتير</a></li>
+      <li><a href="#" onclick="loadLayout('pages/sales.html')"><i class="fa fa-chart-line"></i> المبيعات</a></li>
+      <li><a href="#" onclick="loadLayout('pages/purchases.html')"><i class="fa fa-cart-plus"></i> المشتريات</a></li>
+      <li><a href="#" onclick="loadLayout('pages/debts.html')"><i class="fa fa-money-bill"></i> الديون</a></li>
+      <li><a href="#" onclick="loadLayout('pages/collections.html')"><i class="fa fa-hand-holding-dollar"></i> التحصيل</a></li>
+      <li><a href="#" onclick="loadLayout('pages/agents.html')"><i class="fa fa-user-tie"></i> المندوبين</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+
+    <div class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <input type="text" placeholder="بحث..." class="search">
+      <div class="user">
+        <i class="fa fa-user"></i>
+        <span>Admin</span>
+      </div>
+    </div>
+
+    <div class="content" id="pageContent"></div>
+
+  </div>
+
+</div>
