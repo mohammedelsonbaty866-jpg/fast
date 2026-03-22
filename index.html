@@ -4,81 +4,48 @@
   <meta charset="UTF-8">
   <title>لوحة التحكم</title>
   <link rel="stylesheet" href="css/dashboard.css">
+
+  <!-- أيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
-<h1>لوحة التحكم</h1>
+<div class="layout">
 
-<!-- الكروت -->
-<div class="cards">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>ITQAN</h2>
 
-  <div class="card">
-    <h3>العملاء</h3>
-    <p>120</p>
+    <ul>
+      <li class="active"><a href="index.html"><i class="fa fa-home"></i> لوحة التحكم</a></li>
+      <li><a href="customers.html"><i class="fa fa-users"></i> العملاء</a></li>
+      <li><a href="invoices.html"><i class="fa fa-file"></i> الفواتير</a></li>
+      <li><a href="sales.html"><i class="fa fa-chart-line"></i> المبيعات</a></li>
+      <li><a href="purchases.html"><i class="fa fa-cart-plus"></i> المشتريات</a></li>
+      <li><a href="debts.html"><i class="fa fa-money-bill"></i> الديون</a></li>
+      <li><a href="collections.html"><i class="fa fa-hand-holding-dollar"></i> التحصيل</a></li>
+      <li><a href="agents.html"><i class="fa fa-user-tie"></i> المندوبين</a></li>
+    </ul>
   </div>
 
-  <div class="card">
-    <h3>الفواتير</h3>
-    <p>85</p>
+  <!-- المحتوى -->
+  <div class="content">
+
+    <h1>لوحة التحكم</h1>
+
+    <div class="cards">
+      <div class="card"><h3>العملاء</h3><p>120</p></div>
+      <div class="card"><h3>الفواتير</h3><p>85</p></div>
+      <div class="card"><h3>المبيعات</h3><p>15000</p></div>
+      <div class="card"><h3>المشتريات</h3><p>8000</p></div>
+      <div class="card"><h3>الديون</h3><p>3000</p></div>
+      <div class="card"><h3>التحصيل</h3><p>2000</p></div>
+      <div class="card"><h3>المندوبين</h3><p>6</p></div>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>المبيعات</h3>
-    <p>15000</p>
-  </div>
-
-  <div class="card">
-    <h3>المشتريات</h3>
-    <p>8000</p>
-  </div>
-
-  <div class="card">
-    <h3>الديون</h3>
-    <p>3000</p>
-  </div>
-
-  <div class="card">
-    <h3>التحصيل</h3>
-    <p>2000</p>
-  </div>
-
-  <div class="card">
-    <h3>المندوبين</h3>
-    <p>6</p>
-  </div>
-
-</div>
-
-<!-- آخر الفواتير -->
-<div class="table-section">
-  <h2>آخر الفواتير</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>رقم</th>
-        <th>العميل</th>
-        <th>المبلغ</th>
-        <th>التاريخ</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>محمد</td>
-        <td>500</td>
-        <td>2026-03-22</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>أحمد</td>
-        <td>300</td>
-        <td>2026-03-21</td>
-      </tr>
-    </tbody>
-
-  </table>
 </div>
 
 </body>
