@@ -50,3 +50,44 @@ th, td {
   border-bottom: 1px solid #ddd;
   text-align: center;
 }
+/* روابط */
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar li:hover {
+  background: #334155;
+}
+
+/* أيقونات */
+.sidebar i {
+  margin-left: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+}
