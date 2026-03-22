@@ -1,56 +1,22 @@
 body {
+  margin: 0;
   font-family: Arial;
-  background: #f4f6f9;
-  padding: 20px;
   direction: rtl;
+  background: #f4f6f9;
 }
 
-h1 {
-  margin-bottom: 20px;
+.layout {
+  display: flex;
 }
 
-/* الكروت */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-}
-
-.card {
-  background: white;
+.sidebar {
+  width: 200px;
+  background: #1e293b;
+  color: white;
+  height: 100vh;
   padding: 15px;
-  border-radius: 10px;
-  text-align: center;
 }
 
-.card h3 {
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-/* الجدول */
-.table-section {
-  margin-top: 30px;
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-}
-/* روابط */
 .sidebar a {
   color: white;
   text-decoration: none;
@@ -61,33 +27,57 @@ th, td {
   padding: 10px;
 }
 
-.sidebar li:hover {
-  background: #334155;
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* أيقونات */
-.sidebar i {
-  margin-left: 10px;
+.topbar {
+  background: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Responsive */
+.content {
+  padding: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.pos-container {
+  display: flex;
+  gap: 20px;
+}
+
+.products, .cart {
+  background: white;
+  padding: 15px;
+  flex: 1;
+}
+
+/* mobile */
 @media (max-width: 768px) {
-
-  .layout {
-    flex-direction: column;
-  }
+  .layout { flex-direction: column; }
 
   .sidebar {
-    width: 100%;
-    height: auto;
+    position: fixed;
+    right: -220px;
+    transition: 0.3s;
   }
 
-  .content {
-    padding: 10px;
+  .sidebar.active {
+    right: 0;
   }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
 }
