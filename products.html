@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Products</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<h1>المنتجات</h1>
 
-<h1>Products</h1>
+<input id="name" placeholder="اسم المنتج">
+<input id="price" placeholder="السعر">
+<button onclick="addProduct()">إضافة</button>
 
-<a href="index.html">Back to POS</a>
+<ul id="productList"></ul>
 
-<input id="name" placeholder="Name">
-<input id="price" placeholder="Price">
-<button onclick="addProduct()">Add</button>
-
-<ul id="list"></ul>
-
-<script src="js/products.js"></script>
-</body>
-</html>
+<script src="../js/storage.js"></script>
+<script src="../js/products.js"></script>
