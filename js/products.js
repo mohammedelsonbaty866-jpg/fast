@@ -1,21 +1,18 @@
-let products = [
-  { id: 1, name: "Coffee", price: 50 },
-  { id: 2, name: "Tea", price: 30 }
-];
+let products = getData('products');
 
 function renderProducts() {
-  const container = document.getElementById('products');
-  if (!container) return;
+  const list = document.getElementById('productList');
+  if (!list) return;
 
-  container.innerHTML = '';
+  list.innerHTML = '';
 
-  products.forEach(p => {
-    const div = document.createElement('div');
-    div.innerHTML = `
+  products.forEach((p, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
       ${p.name} - ${p.price}
-      <button onclick="addToCart(${p.id})">Add</button>
+      <button onclick="deleteProduct(${i})">حذف</button>
     `;
-    container.appendChild(div);
+    list.appendChild(li);
   });
 }
 
@@ -23,11 +20,17 @@ function addProduct() {
   const name = document.getElementById('name').value;
   const price = document.getElementById('price').value;
 
-  products.push({
-    id: products.length + 1,
-    name,
-    price: Number(price)
-  });
+  if (!name || !price) return;
 
-  alert("Added!");
+  products.push({ name, price: Number(price) });
+  saveData('products', products);
+  renderProducts();
 }
+
+function deleteProduct(i) {
+  products.splice(i, 1);
+  saveData('products', products);
+  renderProducts();
+}
+
+window.onload = renderProducts;
