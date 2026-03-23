@@ -1,0 +1,60 @@
+<h1>العملاء</h1>
+
+<div class="customer-box">
+  <input id="cName" placeholder="اسم العميل">
+  <input id="cPhone" placeholder="الموبايل">
+  <button onclick="addCustomer()">إضافة</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>الاسم</th>
+      <th>الموبايل</th>
+      <th>الرصيد</th>
+      <th>حذف</th>
+    </tr>
+  </thead>
+
+  <tbody id="customerList"></tbody>
+</table>
+
+<script src="../js/storage.js"></script>
+<script>
+let customers = getData('customers');
+
+function render() {
+  let list = document.getElementById('customerList');
+  list.innerHTML = '';
+
+  customers.forEach((c, i) => {
+    list.innerHTML += `
+      <tr>
+        <td>${c.name}</td>
+        <td>${c.phone}</td>
+        <td>${c.balance || 0}</td>
+        <td><button onclick="del(${i})">X</button></td>
+      </tr>
+    `;
+  });
+}
+
+function addCustomer() {
+  let name = cName.value;
+  let phone = cPhone.value;
+
+  if (!name) return;
+
+  customers.push({ name, phone, balance: 0 });
+  saveData('customers', customers);
+  render();
+}
+
+function del(i) {
+  customers.splice(i, 1);
+  saveData('customers', customers);
+  render();
+}
+
+render();
+</script>
