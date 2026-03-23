@@ -1,0 +1,30 @@
+<h1>الديون</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>العميل</th>
+      <th>الرصيد</th>
+    </tr>
+  </thead>
+
+  <tbody id="debtsList"></tbody>
+</table>
+
+<script src="../js/storage.js"></script>
+<script>
+let customers = getData('customers');
+
+let list = document.getElementById('debtsList');
+
+customers.forEach(c => {
+  if (c.balance > 0) {
+    list.innerHTML += `
+      <tr>
+        <td>${c.name}</td>
+        <td>${c.balance}</td>
+      </tr>
+    `;
+  }
+});
+</script>
