@@ -81,3 +81,23 @@ body {
     right: 0;
   }
 }
+.customer-box {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.products div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.cart table {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px;
+}
