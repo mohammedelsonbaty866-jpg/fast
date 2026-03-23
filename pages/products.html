@@ -1,0 +1,43 @@
+<h1>المنتجات</h1>
+
+<!-- إضافة منتج -->
+<div class="customer-box">
+
+  <input id="name" placeholder="اسم المنتج">
+
+  <input id="price" placeholder="سعر الوحدة">
+
+  <input id="box" placeholder="سعر العلبة">
+
+  <input id="carton" placeholder="سعر الكرتونة">
+
+  <input id="min" placeholder="أقل سعر">
+
+  <input id="max" placeholder="أعلى سعر">
+
+  <button onclick="addProduct()">إضافة</button>
+
+</div>
+
+<!-- بحث -->
+<input id="search" placeholder="بحث..." oninput="searchProducts()">
+
+<!-- جدول -->
+<table>
+  <thead>
+    <tr>
+      <th>الصنف</th>
+      <th>وحدة</th>
+      <th>علبة</th>
+      <th>كرتونة</th>
+      <th>أقل</th>
+      <th>أعلى</th>
+      <th>حذف</th>
+    </tr>
+  </thead>
+
+  <tbody id="productList"></tbody>
+</table>
+
+<script src="../js/storage.js"></script>
+<script src="../js/products.js"></script>
