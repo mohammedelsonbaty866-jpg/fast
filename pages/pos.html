@@ -38,9 +38,12 @@
     <h3>الإجمالي: <span id="total">0</span></h3>
 
     <!-- الدفع -->
-    <div class="payment">
-      <button onclick="cashSale()">إتمام البيع</button>
-      <button onclick="creditSale()">بيع آجل</button>
+<div class="payment">
+  <button style="background:#16a34a" onclick="cashSale()">إتمام البيع</button>
+  <button style="background:#f59e0b" onclick="creditSale()">بيع آجل</button>
+
+  <input type="number" id="paid" placeholder="المدفوع">
+</div>
 
       <input type="number" id="paid" placeholder="المبلغ المدفوع">
     </div>
