@@ -200,3 +200,80 @@ input, select {
   margin: 10px 0;
   padding: 6px;
 }
+/* ===== POS PRO DESIGN ===== */
+
+.pos-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 15px;
+}
+
+/* المنتجات */
+.products {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-card h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.product-card select,
+.product-card button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* السلة */
+.cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart table {
+  font-size: 13px;
+}
+
+#total {
+  font-size: 22px;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+/* أزرار البيع */
+.payment button {
+  flex: 1;
+  font-size: 16px;
+  padding: 12px;
+}
+
+/* تحسين inputs */
+input {
+  font-size: 14px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .pos-container {
+    grid-template-columns: 1fr;
+  }
+
+  .products {
+    max-height: 300px;
+  }
+
+  .payment {
+    flex-direction: column;
+  }
+
+}
