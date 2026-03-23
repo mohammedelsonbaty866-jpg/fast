@@ -1,0 +1,12 @@
+<h1>المبيعات</h1>
+
+<h3>إجمالي المبيعات: <span id="totalSales">0</span></h3>
+
+<script src="../js/storage.js"></script>
+<script>
+let invoices = getData('invoices');
+
+let total = invoices.reduce((sum, i) => sum + i.total, 0);
+
+document.getElementById('totalSales').innerText = total;
+</script>
