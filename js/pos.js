@@ -10,24 +10,25 @@ let customer = {
   balance: 0
 };
 
-// ================= المنتجات =================
-function renderProducts() {
+// ================= المنتجات =================renderProducts() {
+  function renderProducts() {
   const container = document.getElementById('products');
   container.innerHTML = '';
 
   filteredProducts.forEach((p, i) => {
     const div = document.createElement('div');
+    div.className = "product-card";
 
     div.innerHTML = `
-      <span>${p.name}</span>
+      <h4>${p.name}</h4>
 
-      <select onchange="setUnit(${i}, this.value)">
+      <select id="unit-${i}">
         <option value="unit">وحدة (${p.price})</option>
         ${p.box ? `<option value="box">علبة (${p.box})</option>` : ''}
         ${p.carton ? `<option value="carton">كرتونة (${p.carton})</option>` : ''}
       </select>
 
-      <button onclick="addToCart(${i})">+</button>
+      <button onclick="addToCart(${i})">إضافة</button>
     `;
 
     container.appendChild(div);
