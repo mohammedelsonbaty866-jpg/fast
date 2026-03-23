@@ -1,36 +1,66 @@
 let products = getData('products');
+let filtered = [...products];
 
-function renderProducts() {
-  const list = document.getElementById('productList');
-  if (!list) return;
-
+// عرض
+function render() {
+  let list = document.getElementById('productList');
   list.innerHTML = '';
 
-  products.forEach((p, i) => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      ${p.name} - ${p.price}
-      <button onclick="deleteProduct(${i})">حذف</button>
+  filtered.forEach((p, i) => {
+    list.innerHTML += `
+      <tr>
+        <td>${p.name}</td>
+        <td>${p.price}</td>
+        <td>${p.box || '-'}</td>
+        <td>${p.carton || '-'}</td>
+        <td>${p.min}</td>
+        <td>${p.max}</td>
+        <td><button onclick="del(${i})">X</button></td>
+      </tr>
     `;
-    list.appendChild(li);
   });
 }
 
+// إضافة
 function addProduct() {
-  const name = document.getElementById('name').value;
-  const price = document.getElementById('price').value;
+  let p = {
+    name: name.value,
+    price: Number(price.value),
+    box: Number(box.value) || null,
+    carton: Number(carton.value) || null,
+    min: Number(min.value) || 0,
+    max: Number(max.value) || 999999
+  };
 
-  if (!name || !price) return;
+  if (!p.name || !p.price) return alert("بيانات ناقصة");
 
-  products.push({ name, price: Number(price) });
+  products.push(p);
   saveData('products', products);
-  renderProducts();
+
+  filtered = [...products];
+  render();
 }
 
-function deleteProduct(i) {
-  products.splice(i, 1);
+// حذف
+function del(i) {
+  let realIndex = products.indexOf(filtered[i]);
+  products.splice(realIndex, 1);
+
   saveData('products', products);
-  renderProducts();
+
+  filtered = [...products];
+  render();
 }
 
-window.onload = renderProducts;
+// بحث
+function searchProducts() {
+  let v = search.value.toLowerCase();
+
+  filtered = products.filter(p =>
+    p.name.toLowerCase().includes(v)
+  );
+
+  render();
+}
+
+render();
