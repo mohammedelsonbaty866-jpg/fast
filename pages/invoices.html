@@ -1,0 +1,39 @@
+<h1>الفواتير</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>رقم</th>
+      <th>العميل</th>
+      <th>الإجمالي</th>
+      <th>مدفوع</th>
+      <th>الباقي</th>
+    </tr>
+  </thead>
+
+  <tbody id="invList"></tbody>
+</table>
+
+<script src="../js/storage.js"></script>
+<script>
+let invoices = getData('invoices');
+
+function render() {
+  let list = document.getElementById('invList');
+  list.innerHTML = '';
+
+  invoices.forEach((inv, i) => {
+    list.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td>${inv.customer}</td>
+        <td>${inv.total}</td>
+        <td>${inv.paid}</td>
+        <td>${inv.remain}</td>
+      </tr>
+    `;
+  });
+}
+
+render();
+</script>
