@@ -1,0 +1,24 @@
+<h1>التحصيل</h1>
+
+<input id="name" placeholder="اسم العميل">
+<input id="amount" placeholder="المبلغ">
+<button onclick="collect()">تحصيل</button>
+
+<script src="../js/storage.js"></script>
+<script>
+function collect() {
+  let customers = getData('customers');
+
+  let name = document.getElementById('name').value;
+  let amount = Number(document.getElementById('amount').value);
+
+  customers.forEach(c => {
+    if (c.name === name) {
+      c.balance -= amount;
+    }
+  });
+
+  saveData('customers', customers);
+  alert("تم التحصيل");
+}
+</script>
