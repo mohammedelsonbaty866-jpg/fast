@@ -1,0 +1,34 @@
+<h1>المندوبين</h1>
+
+<input id="aName" placeholder="اسم المندوب">
+<button onclick="add()">إضافة</button>
+
+<ul id="list"></ul>
+
+<script src="../js/storage.js"></script>
+<script>
+let agents = getData('agents');
+
+function render() {
+  let list = document.getElementById('list');
+  list.innerHTML = '';
+
+  agents.forEach((a,i)=>{
+    list.innerHTML += `<li>${a} <button onclick="del(${i})">X</button></li>`;
+  });
+}
+
+function add() {
+  agents.push(aName.value);
+  saveData('agents', agents);
+  render();
+}
+
+function del(i){
+  agents.splice(i,1);
+  saveData('agents', agents);
+  render();
+}
+
+render();
+</script>
