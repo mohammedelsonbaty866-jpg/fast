@@ -1,15 +1,50 @@
 <h1>الكاشير</h1>
 
-<div class="pos-container">
-  <div id="products"></div>
+<!-- العميل -->
+<div class="customer-box">
+  <button onclick="searchCustomer()">بحث عن عميل</button>
+  <button onclick="addCustomer()">إضافة عميل</button>
 
-  <div>
-    <h2>السلة</h2>
-    <ul id="cart"></ul>
-    <h3 id="total">0</h3>
-    <button onclick="checkout()">إتمام البيع</button>
-  </div>
+  <p>اسم العميل: <span id="customerName">نقدي</span></p>
+  <p>الرصيد: <span id="customerBalance">0</span></p>
 </div>
 
-<script src="../js/storage.js"></script>
-<script src="../js/pos.js"></script>
+<!-- بحث عن صنف -->
+<input type="text" id="search" placeholder="بحث سريع عن صنف..." oninput="searchProducts()">
+
+<div class="pos-container">
+
+  <!-- المنتجات -->
+  <div class="products" id="products"></div>
+
+  <!-- السلة -->
+  <div class="cart">
+
+    <table>
+      <thead>
+        <tr>
+          <th>الصنف</th>
+          <th>الوحدة</th>
+          <th>السعر</th>
+          <th>الكمية</th>
+          <th>الإجمالي</th>
+          <th>حذف</th>
+        </tr>
+      </thead>
+
+      <tbody id="cart"></tbody>
+    </table>
+
+    <h3>الإجمالي: <span id="total">0</span></h3>
+
+    <!-- الدفع -->
+    <div class="payment">
+      <button onclick="cashSale()">إتمام البيع</button>
+      <button onclick="creditSale()">بيع آجل</button>
+
+      <input type="number" id="paid" placeholder="المبلغ المدفوع">
+    </div>
+
+  </div>
+
+</div>
